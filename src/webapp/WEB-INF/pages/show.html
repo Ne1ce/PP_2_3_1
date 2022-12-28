@@ -7,15 +7,14 @@
 
 </head>
 <body>
-<p th:text="${user.getId()()}">VALUE</p>
-<p th:text="${user.getName()}">VALUE</p>
-<p th:text="${user.getSurName()}">VALUE</p>
-<p th:text="${user.getEmail()}">VALUE</p>
+<p th:text="'ID: ' + ${user.getId()}">VALUE</p>
+<p th:text="'Имя: ' + ${user.getName()}">VALUE</p>
+<p th:text="'Фамилия: ' + ${user.getSurName()}">VALUE</p>
+<p th:text="'Email: ' + ${user.getEmail()}">VALUE</p>
 
-<!--кнопка в карточке пользователя для редактирования-->
-<a th:href="@{/{id}/edit(id=${user.getId()})}">Обновить юзера</a>
-
-<!--кнопка в карточке пользователя для удаления-->
+<a th:href="@{/{id}/edit(id=${user.getId()})}">Изменить данные</a>
+<br/>
+<hr/>
 <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
     <input type="submit" value="Удалить юзера"/>
 

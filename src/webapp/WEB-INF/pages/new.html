@@ -14,7 +14,7 @@
 <br/>
 <label for="surname">Введите фамилию: </label>
 <input type="text" th:field="*{surName}" id="surname"/>
-<div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surName}">Error</div>
+<div style="color:red" th:if="${#fields.hasErrors('surName')}" th:errors="*{surName}">Error</div>
 <br/>
 <label for="email">Введите email: </label>
 <input type="text" th:field="*{email}" id="email"/>

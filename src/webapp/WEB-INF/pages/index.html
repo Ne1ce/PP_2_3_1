@@ -8,10 +8,28 @@
 </head>
 <body>
 <h2>Список юзеров</h2>
-<div th:each="user : ${user}">
-        <a th:href="@{/{id}(id=${user.getId()})}"
-                th:text="${'Имя: ' + user.name + '   Фамилия: ' + user.surName + '   Email: ' + user.email}">user</a>
-</div>
+<table class="table table-success table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Email</th>
+        <th scope="col">Профайл</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${user}">
+        <td th:text="${user.getId()}">
+        <td th:text="${user.getName()}"/>
+        <td th:text="${user.getSurName()}"/>
+        <td th:text="${user.getEmail()}"/>
+        <td>
+            <a th:href="@{/{id}(id=${user.getId()})}">Профайл</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 <br/>
 <hr/>
 <a href="/new">Добавить нового юзера</a>
