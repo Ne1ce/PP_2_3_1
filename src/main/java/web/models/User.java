@@ -1,19 +1,26 @@
 package web.models;
 
 
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @NotEmpty(message = "Empty name")
-    @Size(max =20,message = "To long name")
+    @Size(max = 20, message = "To long name")
     private String name;
+
     @NotEmpty(message = "Empty surName")
-    @Size(max =20,message = "To long surName")
+    @Size(max = 20, message = "To long surName")
     private String surName;
+
     @NotEmpty(message = "Empty email")
     @Email(message = "invalid email")
     private String email;
@@ -59,13 +66,4 @@ public class User {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surName='" + surName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }
